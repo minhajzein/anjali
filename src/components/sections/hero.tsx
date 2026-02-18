@@ -120,7 +120,7 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Text Content */}
           <div className="order-2 lg:order-1">
-            <div className="mb-6 inline-block py-1 px-3 rounded-full bg-secondary/20 text-secondary text-sm font-semibold tracking-wider">
+            <div className="mb-6 inline-block py-2 px-4 text-primary rounded-full bg-secondary/10 backdrop-blur-md border border-secondary/20 text-secondary text-xs md:text-sm font-bold tracking-[0.2em] shadow-lg shadow-secondary/5">
               DIGITAL MARKETING SPECIALIST
             </div>
 

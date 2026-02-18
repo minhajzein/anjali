@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
+import { Preloader } from "@/components/ui/preloader";
+import { PageTransition } from "@/components/providers/page-transition";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -31,10 +33,13 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} font-sans antialiased text-foreground bg-background`}
       >
+        <Preloader />
         <SmoothScrollProvider>
           <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow flex flex-col">
+              <PageTransition>{children}</PageTransition>
+            </main>
             <Footer />
           </div>
         </SmoothScrollProvider>
