@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { PixelGridBackground } from "./pixel-grid-background";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -165,6 +166,12 @@ export function Hero() {
 
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/4 h-[80%] bg-secondary/5 -z-10 rounded-l-[5rem] hidden lg:block" />
+
+      {/* Interactive Pixel Grid Background */}
+      <PixelGridBackground />
+
+      {/* Subtle Background Gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(172,200,162,0.05),transparent_70%)] -z-20" />
     </section>
   );
 }

@@ -125,11 +125,11 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex overflow-x-auto pb-8 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-3 gap-8 snap-x snap-mandatory hide-scrollbar">
             {services.map((service, i) => (
               <Card
                 key={i}
-                className="border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-card group overflow-hidden"
+                className="min-w-[85vw] md:min-w-0 border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-card group overflow-hidden snap-center"
               >
                 <CardContent className="p-8">
                   <div className="mb-6 p-3 rounded-2xl bg-secondary/10 w-fit group-hover:bg-secondary group-hover:text-primary transition-colors">
