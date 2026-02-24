@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
-const HERO_IMAGES = ["/prof-anjoo.JPG", "/hero-2.jpg", "/hero-3.jpg"];
+const HERO_IMAGES = ["/prof-anjoo.JPG", "/hero-3.jpg"];
 
 function isSafari(): boolean {
   if (typeof window === "undefined") return false;
@@ -124,7 +124,8 @@ export function HeroImageSlideshow() {
 
   // Enable SVG filter only on non-Safari so the hero image is visible everywhere (Safari hides content with filter: url())
   useEffect(() => {
-    setUseFilter(!isSafari());
+    const isSafariBrowser = isSafari();
+    queueMicrotask(() => setUseFilter(!isSafariBrowser));
   }, []);
 
   useEffect(() => {

@@ -29,9 +29,13 @@ export function SmoothScrollProvider({
     };
   }, []);
 
-  // Refresh ScrollTrigger on route change to prevent calculation issues
+  // Scroll to top and refresh ScrollTrigger on route change
   useEffect(() => {
-    ScrollTrigger.refresh();
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    const t = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+    return () => cancelAnimationFrame(t);
   }, [pathname]);
 
   return (
