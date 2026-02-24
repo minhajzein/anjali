@@ -108,11 +108,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold title-main mb-6 tracking-tight">
                 STRATEGIC SOLUTIONS FOR{" "}
-                <span className="text-secondary">DIGITAL GROWTH</span>
+                <span className="section-title-accent">DIGITAL GROWTH</span>
               </h2>
-              <p className="text-lg text-foreground/70">
+              <p className="text-lg text-foreground/85">
                 I help brands navigate the complex digital landscape with a
                 focus on sustainable growth and measurable impact.
               </p>
@@ -141,7 +141,7 @@ export default function Home() {
                     </Badge>
                   )}
                   <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-foreground/70 mb-6">
+                  <p className="text-foreground/85 mb-6">
                     {service.description}
                   </p>
                 </CardContent>
@@ -156,25 +156,25 @@ export default function Home() {
       <section className="py-16 px-6 bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           <div>
-            <div className="text-5xl font-bold text-secondary mb-2">20+</div>
+            <div className="text-5xl font-bold text-primary-foreground mb-2">20+</div>
             <div className="text-sm uppercase tracking-widest opacity-70 font-semibold">
               Brands Managed
             </div>
           </div>
           <div>
-            <div className="text-5xl font-bold text-secondary mb-2">100%</div>
+            <div className="text-5xl font-bold text-primary-foreground mb-2">100%</div>
             <div className="text-sm uppercase tracking-widest opacity-70 font-semibold">
               Avg. ROI Increase
             </div>
           </div>
           <div>
-            <div className="text-5xl font-bold text-secondary mb-2">1M+</div>
+            <div className="text-5xl font-bold text-primary-foreground mb-2">1M+</div>
             <div className="text-sm uppercase tracking-widest opacity-70 font-semibold">
               Ad Spend Optimized
             </div>
           </div>
           <div>
-            <div className="text-5xl font-bold text-secondary mb-2">4yr</div>
+            <div className="text-5xl font-bold text-primary-foreground mb-2">4yr</div>
             <div className="text-sm uppercase tracking-widest opacity-70 font-semibold">
               Expertise
             </div>
@@ -189,8 +189,8 @@ export default function Home() {
             <Badge variant="secondary" className="mb-4">
               CLIENT SUCCESS
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              HEAR FROM MY <span className="text-secondary">PARTNERS</span>
+            <h2 className="text-4xl md:text-5xl font-bold title-main mb-6">
+              HEAR FROM MY <span className="section-title-accent">PARTNERS</span>
             </h2>
           </div>
 
@@ -239,13 +239,13 @@ export default function Home() {
               <Badge variant="secondary" className="mb-4">
                 THE DIALOGUE
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight">
-                LATEST <span className="text-secondary">INSIGHTS</span>
+              <h2 className="text-4xl md:text-5xl font-bold title-main mb-6 tracking-tight">
+                LATEST <span className="section-title-accent">INSIGHTS</span>
               </h2>
-              <p className="text-lg text-foreground/70">
-                Exploring the frontiers of digital marketing and sharing what
-                works in the real world.
-              </p>
+<p className="text-lg text-foreground/85">
+              Exploring the frontiers of digital marketing and sharing what
+              works in the real world.
+            </p>
             </div>
             <Button variant="ghost" className="group" asChild>
               <Link href="/blog">
@@ -288,7 +288,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-primary group-hover:text-secondary transition-colors mb-4 line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-foreground/70 mb-8 line-clamp-2">
+                  <p className="text-foreground/85 mb-8 line-clamp-2">
                     {post.excerpt}
                   </p>
                   <Link
@@ -307,9 +307,9 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8 tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-bold title-main mb-8 tracking-tighter">
             READY TO SCALE YOUR{" "}
-            <span className="text-secondary">DIGITAL PRESENCE?</span>
+            <span className="section-title-accent">DIGITAL PRESENCE?</span>
           </h2>
           <Button size="lg" className="rounded-full px-12 h-14 text-lg" asChild>
             <Link href="/contact">Let&apos;s Talk Strategy</Link>

@@ -23,11 +23,11 @@ export default function ContactPage() {
             <Badge variant="secondary" className="mb-4">
               GET IN TOUCH
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold title-main mb-6 tracking-tight">
               LET&apos;S START A{" "}
-              <span className="text-secondary">CONVERSATION</span>
+              <span className="section-title-accent">CONVERSATION</span>
             </h1>
-            <p className="text-lg text-foreground/70 mb-12 max-w-lg">
+            <p className="text-lg text-foreground/85 mb-12 max-w-lg">
               Whether you have a specific project in mind or just want to
               explore how we can grow your brand together, I&apos;m always open
               to new opportunities and collaborations.
@@ -35,32 +35,32 @@ export default function ContactPage() {
 
             <div className="space-y-8 mb-12">
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center section-title-accent shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary">Email Me</h4>
-                  <p className="text-foreground/70">
+                  <p className="text-foreground/85">
                     anjalikjayaraj@gmail.com
                   </p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center section-title-accent shrink-0">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary">Call Me</h4>
-                  <p className="text-foreground/70">+91 8113 09 2745</p>
+                  <p className="text-foreground/85">+91 8113 09 2745</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center section-title-accent shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary">Location</h4>
-                  <p className="text-foreground/70">
+                  <p className="text-foreground/85">
                     Dharmasala, Kannur, Kerala (Available Globally)
                   </p>
                 </div>

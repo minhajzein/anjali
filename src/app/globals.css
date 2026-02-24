@@ -145,6 +145,24 @@
   will-change: transform;
 }
 
+/* Section title accent: readable in both themes (secondary in light, primary in dark) */
+.section-title-accent {
+  @apply text-secondary dark:text-primary;
+}
+
+/* Title combo: main = dark in light mode, white in dark mode; use with section-title-accent for two-tone titles */
+.title-main {
+  @apply text-primary dark:text-white;
+}
+
+/* Force hero image to paint on its own layer so it’s visible in Safari and other browsers */
+.hero-image-container,
+.hero-image-wrapper {
+  transform: translateZ(0);
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }

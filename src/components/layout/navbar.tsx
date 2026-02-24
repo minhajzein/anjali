@@ -68,7 +68,7 @@ export function Navbar() {
           href="/"
           className="text-2xl font-bold text-primary tracking-tighter"
         >
-          ANJALI<span className="text-secondary">.</span>
+          ANJALI<span className="section-title-accent">.</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -78,8 +78,8 @@ export function Navbar() {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-secondary",
-                pathname === link.href ? "text-secondary" : "text-foreground",
+                "text-sm font-medium transition-colors hover:text-secondary dark:hover:text-primary",
+                pathname === link.href ? "section-title-accent" : "text-foreground",
               )}
             >
               {link.name}
@@ -114,8 +114,8 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "text-lg font-medium",
-                  pathname === link.href ? "text-secondary" : "text-foreground",
-                )}
+pathname === link.href ? "section-title-accent" : "text-foreground",
+              )}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

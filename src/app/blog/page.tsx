@@ -58,10 +58,10 @@ export default function BlogPage() {
             <Badge variant="secondary" className="mb-4">
               MARKETING INSIGHTS
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4 tracking-tight">
-              THE <span className="text-secondary">DIALOGUE</span>
+            <h1 className="text-4xl md:text-6xl font-bold title-main mb-4 tracking-tight">
+              THE <span className="section-title-accent">DIALOGUE</span>
             </h1>
-            <p className="text-lg text-foreground/70">
+            <p className="text-lg text-foreground/85">
               Sharing my perspective on the evolving digital landscape, data
               trends, and marketing strategies that work.
             </p>
@@ -96,7 +96,7 @@ export default function BlogPage() {
                 <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors leading-tight underline decoration-secondary/30 decoration-4 underline-offset-8">
                   The Future of Predictive Analytics in Consumer Behavior
                 </h2>
-                <p className="text-lg text-foreground/70 mb-8 max-w-lg">
+                <p className="text-lg text-foreground/85 mb-8 max-w-lg">
                   How AI-driven forecasting is changing the way we plan
                   marketing budgets and audience segmentations.
                 </p>
@@ -140,7 +140,7 @@ export default function BlogPage() {
                 </h3>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-foreground/70 text-sm line-clamp-3">
+                <p className="text-foreground/85 text-sm line-clamp-3">
                   {post.excerpt}
                 </p>
               </CardContent>
@@ -159,7 +159,7 @@ export default function BlogPage() {
         {/* Newsletter Section */}
         <div className="mt-16 bg-secondary/10 rounded-3xl p-12 text-center">
           <h2 className="text-3xl font-bold mb-4">STAY IN THE LOOP</h2>
-          <p className="text-foreground/70 mb-8 max-w-lg mx-auto">
+          <p className="text-foreground/85 mb-8 max-w-lg mx-auto">
             Get monthly digital marketing insights, strategies, and case studies
             delivered straight to your inbox.
           </p>

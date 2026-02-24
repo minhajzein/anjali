@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { PixelGridBackground } from "./pixel-grid-background";
+import { HeroBackground } from "./hero-background";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,13 +24,21 @@ const HeroImageSlideshow = dynamic(
     // Show the first image as a static placeholder while JS loads
     loading: () => (
       <div className="order-1 lg:order-2 relative h-[90%] flex flex-col justify-center items-center hero-image-container">
-        <div className="relative aspect-[4/5] md:aspect-square h-[80%] lg:aspect-[4/5] w-full max-w-[500px] mx-auto rounded-[2rem] shadow-2xl overflow-hidden">
+        <div
+          className="relative aspect-[4/5] md:aspect-square h-[80%] lg:aspect-[4/5] w-full max-w-[500px] mx-auto rounded-[2rem] shadow-2xl overflow-hidden"
+          style={{
+            transform: "translateZ(0)",
+            WebkitBackfaceVisibility: "visible",
+            backfaceVisibility: "visible",
+          }}
+        >
           <Image
             src="/prof-anjoo.JPG"
             alt="Anjali - Digital Marketing Specialist"
             fill
             className="object-cover"
             priority
+            sizes="(max-width: 768px) 100vw, 500px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent pointer-events-none" />
         </div>
@@ -120,15 +128,15 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Text Content */}
           <div className="order-2 lg:order-1">
-            <div className="mb-6 inline-block py-2 px-4 text-primary rounded-full bg-secondary/10 backdrop-blur-md border border-secondary/20 text-secondary text-xs md:text-sm font-bold tracking-[0.2em] shadow-lg shadow-secondary/5">
+            <div className="mb-6 inline-block py-2 px-4 rounded-full bg-secondary/10 backdrop-blur-md border border-secondary/20 text-primary text-xs md:text-sm font-bold tracking-[0.2em] shadow-lg shadow-secondary/5">
               DIGITAL MARKETING SPECIALIST
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter text-primary mb-8 perspective-1000">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter title-main mb-8 perspective-1000">
               <div className="hero-title-line overflow-hidden pb-2">
                 {splitText("ELEVATING")}
               </div>
-              <div className="hero-title-line overflow-hidden text-secondary pb-2">
+              <div className="hero-title-line overflow-hidden section-title-accent pb-2">
                 {splitText("BRANDS")}
               </div>
               <div className="hero-title-line overflow-hidden pb-2">
@@ -136,7 +144,7 @@ export function Hero() {
               </div>
             </h1>
 
-            <p className="hero-subtitle text-lg md:text-xl text-foreground/70 max-w-xl mb-12 leading-relaxed">
+            <p className="hero-subtitle text-lg md:text-xl text-foreground/85 max-w-xl mb-12 leading-relaxed">
               Strategic digital marketing executive focused on data-driven
               growth, creative storytelling, and measurable results. Turning
               visions into market-leading success.
@@ -167,8 +175,8 @@ export function Hero() {
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/4 h-[80%] bg-secondary/5 -z-10 rounded-l-[5rem] hidden lg:block" />
 
-      {/* Interactive Pixel Grid Background */}
-      <PixelGridBackground />
+      {/* Soft gradient orbs background */}
+      <HeroBackground />
 
       {/* Subtle Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(172,200,162,0.05),transparent_70%)] -z-20" />

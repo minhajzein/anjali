@@ -118,10 +118,10 @@ export default function ServicesPage() {
           <Badge variant="secondary" className="mb-4">
             OUR EXPERTISE
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
-            SERVICES TAILORED FOR <span className="text-secondary">GROWTH</span>
+          <h1 className="text-4xl md:text-6xl font-bold title-main mb-6">
+            SERVICES TAILORED FOR <span className="section-title-accent">GROWTH</span>
           </h1>
-          <p className="text-lg text-foreground/70">
+          <p className="text-lg text-foreground/85">
             Comprehensive digital marketing solutions designed to solve complex
             business challenges and deliver measurable bottom-line impact.
           </p>
@@ -143,7 +143,7 @@ export default function ServicesPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+                <p className="text-foreground/85 mb-6 text-sm leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-2">
@@ -173,7 +173,7 @@ export default function ServicesPage() {
                 <AccordionTrigger className="text-left font-bold text-lg hover:text-secondary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/70 text-base leading-relaxed">
+                <AccordionContent className="text-foreground/85 text-base leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

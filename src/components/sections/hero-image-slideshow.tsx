@@ -6,6 +6,16 @@ import Image from "next/image";
 
 const HERO_IMAGES = ["/prof-anjoo.JPG", "/hero-2.jpg", "/hero-3.jpg"];
 
+function isSafari(): boolean {
+  if (typeof window === "undefined") return false;
+  const ua = window.navigator.userAgent;
+  return (
+    ua.includes("Safari") &&
+    !ua.includes("Chrome") &&
+    !ua.includes("Chromium")
+  );
+}
+
 export function HeroImageSlideshow() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imgARef = useRef<HTMLDivElement>(null);
@@ -19,11 +29,15 @@ export function HeroImageSlideshow() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(1);
   const [activeSlot, setActiveSlot] = useState<"A" | "B">("A");
+  // Start false so Safari never gets filter on first paint; effect sets true for other browsers
+  const [useFilter, setUseFilter] = useState(false);
 
   const startTransition = useCallback(
     (targetIndex?: number) => {
       if (isTransitioningRef.current) return;
-      if (!imgDisplacementRef.current || !imgTurbulenceRef.current) return;
+      // Skip filter refs check when filter is disabled (e.g. Safari) — crossfade only
+      if (useFilter && (!imgDisplacementRef.current || !imgTurbulenceRef.current))
+        return;
 
       const target =
         targetIndex !== undefined
@@ -48,9 +62,15 @@ export function HeroImageSlideshow() {
         }
 
         ctxRef.current?.add(() => {
-          // Reset filters/positions for clean start
-          gsap.set(imgDisplacementRef.current, { attr: { scale: 0 } });
-          gsap.set(imgTurbulenceRef.current, { attr: { seed: 1 } });
+          const useDistortion =
+            useFilter &&
+            imgDisplacementRef.current &&
+            imgTurbulenceRef.current;
+
+          if (useDistortion) {
+            gsap.set(imgDisplacementRef.current, { attr: { scale: 0 } });
+            gsap.set(imgTurbulenceRef.current, { attr: { seed: 1 } });
+          }
 
           // Ensure both are ready for the crossfade
           gsap.set(incoming, { opacity: 1, zIndex: 1 });
@@ -58,42 +78,42 @@ export function HeroImageSlideshow() {
 
           const tl = gsap.timeline({
             onComplete: () => {
-              // Now that animation is done, swap the states to match the visual result
               setCurrentIndex(target);
               setActiveSlot((prev) => (prev === "A" ? "B" : "A"));
               isTransitioningRef.current = false;
             },
           });
 
-          // Distortion phase
-          tl.to(
-            imgDisplacementRef.current,
-            { attr: { scale: 120 }, duration: 0.7, ease: "power2.in" },
-            0,
-          );
-          tl.to(
-            imgTurbulenceRef.current,
-            { attr: { seed: 20 }, duration: 0.7, ease: "none" },
-            0,
-          );
+          if (useDistortion) {
+            tl.to(
+              imgDisplacementRef.current,
+              { attr: { scale: 120 }, duration: 0.7, ease: "power2.in" },
+              0,
+            );
+            tl.to(
+              imgTurbulenceRef.current,
+              { attr: { seed: 20 }, duration: 0.7, ease: "none" },
+              0,
+            );
+          }
 
-          // Fade phase
           tl.to(
             outgoing,
             { opacity: 0, duration: 0.4, ease: "power2.in" },
-            0.4,
+            useDistortion ? 0.4 : 0,
           );
 
-          // Resolution phase
-          tl.to(
-            imgDisplacementRef.current,
-            { attr: { scale: 0 }, duration: 0.5, ease: "power2.out" },
-            0.8,
-          );
+          if (useDistortion) {
+            tl.to(
+              imgDisplacementRef.current,
+              { attr: { scale: 0 }, duration: 0.5, ease: "power2.out" },
+              0.8,
+            );
+          }
         });
       });
     },
-    [currentIndex, activeSlot],
+    [currentIndex, activeSlot, useFilter],
   );
 
   // Use a stable ref for the transition function to avoid clearing the interval unnecessarily
@@ -101,6 +121,11 @@ export function HeroImageSlideshow() {
   useEffect(() => {
     transitionRef.current = startTransition;
   }, [startTransition]);
+
+  // Enable SVG filter only on non-Safari so the hero image is visible everywhere (Safari hides content with filter: url())
+  useEffect(() => {
+    setUseFilter(!isSafari());
+  }, []);
 
   useEffect(() => {
     ctxRef.current = gsap.context(() => {}, containerRef);
@@ -122,8 +147,13 @@ export function HeroImageSlideshow() {
       className="order-1 lg:order-2 relative h-[90%] flex flex-col justify-center mt-10 md:mt-0 items-center hero-image-container"
     >
       <div
-        className="relative aspect-[4/5] md:aspect-square h-[80%] lg:aspect-[4/5] w-full max-w-[500px] mx-auto rounded-[2rem] shadow-2xl overflow-hidden"
-        style={{ filter: "url(#image-distortion)" }}
+        className="relative aspect-[4/5] md:aspect-square h-[80%] lg:aspect-[4/5] w-full max-w-[500px] mx-auto rounded-[2rem] shadow-2xl overflow-hidden hero-image-wrapper"
+        style={{
+          filter: useFilter ? "url(#image-distortion)" : "none",
+          transform: "translateZ(0)",
+          WebkitBackfaceVisibility: "visible" as const,
+          backfaceVisibility: "visible",
+        }}
       >
         {/* Slot A */}
         <div
@@ -187,7 +217,7 @@ export function HeroImageSlideshow() {
       {/* Floating Stats Decor */}
       <div className="hero-decor absolute bottom-0 left-0 bg-card p-6 rounded-2xl shadow-xl border border-secondary/20 hidden md:block">
         <div className="text-3xl font-bold text-primary">4+ YRS</div>
-        <div className="text-xs font-semibold text-secondary uppercase tracking-widest">
+        <div className="text-xs font-semibold section-title-accent uppercase tracking-widest">
           Expertise
         </div>
       </div>

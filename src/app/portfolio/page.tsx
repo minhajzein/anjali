@@ -51,10 +51,10 @@ export default function PortfolioPage() {
             <Badge variant="secondary" className="mb-4">
               CASE STUDIES
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 tracking-tight">
-              SELECTED <span className="text-secondary">WORKS</span>
+            <h1 className="text-4xl md:text-6xl font-bold title-main mb-6 tracking-tight">
+              SELECTED <span className="section-title-accent">WORKS</span>
             </h1>
-            <p className="text-lg text-foreground/70">
+            <p className="text-lg text-foreground/85">
               A collection of marketing triumphs where data met creativity.
               These projects reflect my commitment to delivering tangible
               business value.
@@ -99,7 +99,7 @@ export default function PortfolioPage() {
               </div>
 
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-secondary">
+                <span className="text-xs font-bold uppercase tracking-widest section-title-accent">
                   {project.category}
                 </span>
                 <div className="h-[1px] w-8 bg-border" />
@@ -109,7 +109,7 @@ export default function PortfolioPage() {
                 {project.title}
               </h3>
 
-              <p className="text-foreground/70 mb-6 line-clamp-2">
+              <p className="text-foreground/85 mb-6 line-clamp-2">
                 {project.description}
               </p>
 

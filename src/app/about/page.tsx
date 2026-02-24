@@ -67,14 +67,14 @@ export default function AboutPage() {
             <Badge variant="secondary" className="mb-4">
               ABOUT ME
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold title-main mb-6 tracking-tight">
               I&apos;M ANJALI, A STRATEGIC{" "}
-              <span className="text-secondary">MARKETING INNOVATOR</span>
+              <span className="section-title-accent">MARKETING INNOVATOR</span>
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {skills.map((skill) => (
                 <div key={skill} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-secondary" />
+                  <CheckCircle2 className="w-5 h-5 section-title-accent" />
                   <span className="text-sm font-medium">{skill}</span>
                 </div>
               ))}
@@ -88,7 +88,7 @@ export default function AboutPage() {
         {/* Experience Timeline */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-            <Briefcase className="text-secondary" /> PROFESSIONAL JOURNEY
+            <Briefcase className="section-title-accent" /> PROFESSIONAL JOURNEY
           </h2>
           <div className="space-y-8">
             {experience.map((item, i) => (
@@ -105,10 +105,10 @@ export default function AboutPage() {
                     {item.period}
                   </span>
                 </div>
-                <p className="text-secondary font-semibold mb-3">
+                <p className="section-title-accent font-semibold mb-3">
                   {item.company}
                 </p>
-                <p className="text-foreground/70">{item.description}</p>
+                <p className="text-foreground/85">{item.description}</p>
               </div>
             ))}
           </div>
