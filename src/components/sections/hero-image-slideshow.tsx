@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
-const HERO_IMAGES = ["/prof-anjoo.JPG", "/hero-3.jpg"];
+const HERO_IMAGES = ["/prof-anjoo.JPG","/hero-2.png", "/hero-3.jpg"];
 
 function isSafari(): boolean {
   if (typeof window === "undefined") return false;
